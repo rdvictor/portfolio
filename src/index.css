@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #00ff9f;
+  --secondary: #00b8ff;
+  --background: #0a0a0a;
+  --text: #ffffff;
+}
+
+body {
+  font-family: 'Share Tech Mono', monospace;
+  background-color: var(--background);
+  color: var(--text);
+  margin: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.nav-item {
+  @apply cursor-pointer hover:text-[var(--primary)] transition-colors duration-200;
+}
+
+.folder-structure {
+  @apply pl-4 border-l border-[var(--secondary)] opacity-80;
+}
+
+.folder {
+  @apply text-[var(--secondary)] cursor-pointer hover:text-[var(--primary)] transition-colors duration-200;
+}
+
+.file {
+  @apply text-[var(--text)];
+}
+
+.section {
+  @apply min-h-screen p-8 relative;
+}
+
+/* Navigation styles */
+.nav-container {
+  @apply fixed left-8 top-1/2 -translate-y-1/2 text-sm z-50;
+}
+
+main {
+  @apply transition-opacity duration-300 ease-in-out;
+}
+
+.nav-container:hover ~ main {
+  @apply opacity-30;
+}
