@@ -5,14 +5,14 @@ const SONGS = [
   {
     title: "Family Matters (OPIUM)",
     artist: "Drake",
-    url: "./public/opium.mp3",
-    cover: "./public/music/cover.jpg"
+    url: "./opium.mp3",
+    cover: "./cover.jpg"
   },
   {
     title: "I Could Never",
     artist: "Drake",
-    url: "./public/never.mp3",
-    cover: "./public/music/cover.jpg"
+    url: "./never.mp3",
+    cover: "./cover.jpg"
   }
 ];
 
@@ -25,7 +25,7 @@ const formatTime = (seconds: number) => {
 function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(50);
   const [isMuted, setIsMuted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -118,6 +118,7 @@ function MusicPlayer() {
         onError={handleError}
         onEnded={playNext}
         autoPlay={true}
+        loop={true}
       />
       <div className="music-player-container">
         {/* Album Cover */}
